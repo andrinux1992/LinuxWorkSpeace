@@ -120,6 +120,7 @@ task :default do
   step 'symlink'
   link_file 'vim'       , '~/.vim'
   link_file 'tmux.conf' , '~/.tmux.conf'
+  link_file 'tmux'      , '~/.tmux'
   link_file 'vimrc'     , '~/.vimrc'
   unless File.exist?(File.expand_path('~/.vimrc.local'))
     cp File.expand_path('vimrc.local'), File.expand_path('~/.vimrc.local'), :verbose => true

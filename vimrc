@@ -9,7 +9,11 @@ set nocompatible
 
 " enable syntax highlighting
 syntax enable
+set background=dark
+colorscheme solarized
 
+" 历史记录数  
+set history=1000 
 set autoindent
 set autoread                                                 " reload files when changed on disk, i.e. via `git checkout`
 set backspace=2                                              " Fix broken backspace in some setups
@@ -34,6 +38,23 @@ set tabstop=8                                                " actual tabs occup
 set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc
 set wildmenu                                                 " show a navigable menu for tab completion
 set wildmode=longest,list,full
+
+set foldenable      " 允许折叠    
+set foldmethod=manual   " 手动折叠 
+
+" 设置当文件被改动时自动载入  
+set autoread  
+set ruler
+
+set hls
+set cursorline
+hi  CursorLine  guibg=Grey40 guifg=red term=BOLD
+" hi CursorLine  cterm=NONE   ctermbg=darkred ctermfg=white
+hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white
+
+" set cursorline
+" hi CursorLine  cterm=NONE   ctermbg=darkred ctermfg=white
+" hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white
 
 " Enable basic mouse behavior such as resizing buffers.
 set mouse=a
@@ -120,12 +141,12 @@ if filereadable(expand("~/.vimrc.local"))
   "
   " autocmd! bufwritepost .vimrc source ~/.vimrc
   " noremap! jj <ESC>
-  source ~/.vimrc.local
+  " source ~/.vimrc.local
 endif
 
 
 " ##########################Airline################################
-
+let g:tmuxline_powerline_separators = 0
 let g:airline#extensions#tmuxline#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
@@ -181,4 +202,24 @@ let g:airline_symbols.linenr = ''
 
 " replace filename to current working directory 
 " let g:airline_section_b = '%{getcwd()}'
-" le g:airline_section_c = '%t'
+let g:airline_section_c = '%{getcwd()}/%t'
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
+" CTags的设定    
+" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""  
+" let Tlist_Auto_Open=1  
+" let Tlist_Sort_Type = "name"    " 按照名称排序    
+" let Tlist_Use_Right_Window = 1  " 在右侧显示窗口    
+" let Tlist_Exit_OnlyWindow = 1 "如果taglist窗口是最后一个窗口，则退出vim   
+" let Tlist_Compart_Format = 1    " 压缩方式    
+" let Tlist_Exist_OnlyWindow = 1  " 如果只有一个buffer，kill窗口也kill掉buffer    
+" let Tlist_File_Fold_Auto_Close = 0  " 不要关闭其他文件的tags    
+" let Tlist_Enable_Fold_Column = 0    " 不要显示折叠树    
+" autocmd FileType java set tags+=D:\tools\java\tags    
+" "autocmd FileType h,cpp,cc,c set tags+=D:\tools\cpp\tags    
+" "let Tlist_Show_One_File=1
+" "不同时显示多个文件的tag，只显示当前文件的  
+" "设置tags    
+" set tags=tags    
+" "set autochdir   
