@@ -21,8 +21,8 @@ set expandtab                                                " expand tabs to sp
 set ignorecase                                               " case-insensitive search
 set incsearch                                                " search as you type
 set laststatus=2                                             " always show statusline
-set list                                                     " show trailing whitespace
-set listchars=tab:▸\ ,trail:▫
+"set list                                                     " show trailing whitespace
+"set listchars=tab:▸\ ,trail:▫
 set number                                                   " show line numbers
 set ruler                                                    " show where you are
 set scrolloff=3                                              " show context above/below cursorline
@@ -66,8 +66,8 @@ let g:NERDSpaceDelims=1
 let g:gitgutter_enabled = 0
 
 " powerline
-set t_Co=16
-let g:Powerline_symbols = 'fancy'
+" set t_Co=16
+" let g:Powerline_symbols = 'fancy'
 
 " vim-markdown
 let g:vim_markdown_folding_disabled=1
@@ -122,3 +122,63 @@ if filereadable(expand("~/.vimrc.local"))
   " noremap! jj <ESC>
   source ~/.vimrc.local
 endif
+
+
+" ##########################Airline################################
+
+let g:airline#extensions#tmuxline#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '>'
+" let g:airline_theme = 'solarized'
+
+let g:airline_powerline_fonts = 1
+let g:airline_theme='powerlineish'
+
+" air-line
+let g:airline_powerline_fonts = 1
+
+if !exists('g:airline_symbols')
+     let g:airline_symbols = {}
+endif
+
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+
+
+"" airline symbols
+"let g:airline_left_sep = '>'
+"let g:airline_left_alt_sep = ' '
+"let g:airline_right_sep = '<'
+"let g:airline_right_alt_sep = ' '
+"" let g:airline_symbols.branch = '->'
+"let g:airline_symbols.branch = '⎇'
+"let g:airline_symbols.readonly = 'RO'
+"let g:airline_symbols.linenr = ' '
+""let g:tmuxline_theme = 'icebert'
+
+" powerline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+
+
+" replace filename to current working directory 
+" let g:airline_section_b = '%{getcwd()}'
+" le g:airline_section_c = '%t'
